@@ -27,6 +27,149 @@ const bgLayer1 = document.getElementById('bg-layer-1');
 const bgLayer2 = document.getElementById('bg-layer-2');
 let isLayer1Active = true;
 
+const translations = {
+    es: {
+        title: "Calculadora de Notas UG",
+        parcial1: "1er Parcial",
+        parcial2: "2do Parcial",
+        gf: "Gestión Formativa",
+        gp: "Gestión Práctica",
+        ex: "Examen",
+        prom1: "Promedio 1er Parcial:",
+        prom2: "Promedio 2do Parcial:",
+        resultados: "Resultados Finales",
+        promSemestre: "Promedio Semestre",
+        notaMinima: "Nota Mínima Recuperación",
+        msgIngreso: "Ingrese sus notas",
+        msgFaltan: "Faltan notas por ingresar",
+        msgEspera: "En espera...",
+        msgAprobado: "Aprobado",
+        msgReprobadoProm: "Reprobado (Prom. < 3)",
+        msgReprobadoReq: "Reprobado (Req. > 10)",
+        footer: "Desarrollado por Edison Plaza & Gemini"
+    },
+    en: {
+        title: "UG Grade Calculator",
+        parcial1: "1st Term",
+        parcial2: "2nd Term",
+        gf: "Formative Assessment",
+        gp: "Practical Assessment",
+        ex: "Exam",
+        prom1: "1st Term Average:",
+        prom2: "2nd Term Average:",
+        resultados: "Final Results",
+        promSemestre: "Semester Average",
+        notaMinima: "Minimum Recovery Grade",
+        msgIngreso: "Enter your grades",
+        msgFaltan: "Missing grades",
+        msgEspera: "Waiting...",
+        msgAprobado: "Passed",
+        msgReprobadoProm: "Failed (Avg < 3)",
+        msgReprobadoReq: "Failed (Req > 10)",
+        footer: "Developed by Edison Plaza & Gemini"
+    },
+    fr: {
+        title: "Calculatrice de Notes UG",
+        parcial1: "1er Trimestre",
+        parcial2: "2ème Trimestre",
+        gf: "Évaluation Formative",
+        gp: "Évaluation Pratique",
+        ex: "Examen",
+        prom1: "Moyenne 1er Trim:",
+        prom2: "Moyenne 2ème Trim:",
+        resultados: "Résultats Finaux",
+        promSemestre: "Moyenne Semestrielle",
+        notaMinima: "Note de Rattrapage",
+        msgIngreso: "Entrez vos notes",
+        msgFaltan: "Notes manquantes",
+        msgEspera: "En attente...",
+        msgAprobado: "Admis",
+        msgReprobadoProm: "Échoué (Moy < 3)",
+        msgReprobadoReq: "Échoué (Req > 10)",
+        footer: "Développé par Edison Plaza & Gemini"
+    },
+    de: {
+        title: "UG Notenrechner",
+        parcial1: "1. Semesterhälfte",
+        parcial2: "2. Semesterhälfte",
+        gf: "Formative Bewertung",
+        gp: "Praktische Bewertung",
+        ex: "Prüfung",
+        prom1: "Durchschnitt 1. Hälfte:",
+        prom2: "Durchschnitt 2. Hälfte:",
+        resultados: "Endergebnisse",
+        promSemestre: "Semesterdurchschnitt",
+        notaMinima: "Minimale Nachholnote",
+        msgIngreso: "Noten eingeben",
+        msgFaltan: "Fehlende Noten",
+        msgEspera: "Warten...",
+        msgAprobado: "Bestanden",
+        msgReprobadoProm: "Durchgefallen (Durch. < 3)",
+        msgReprobadoReq: "Durchgefallen (Erf. > 10)",
+        footer: "Entwickelt von Edison Plaza & Gemini"
+    },
+    pt: {
+        title: "Calculadora de Notas UG",
+        parcial1: "1º Bimestre",
+        parcial2: "2º Bimestre",
+        gf: "Avaliação Formativa",
+        gp: "Avaliação Prática",
+        ex: "Exame",
+        prom1: "Média 1º Bimestre:",
+        prom2: "Média 2º Bimestre:",
+        resultados: "Resultados Finais",
+        promSemestre: "Média do Semestre",
+        notaMinima: "Nota de Recuperação",
+        msgIngreso: "Insira suas notas",
+        msgFaltan: "Faltam notas",
+        msgEspera: "Aguardando...",
+        msgAprobado: "Aprovado",
+        msgReprobadoProm: "Reprovado (Média < 3)",
+        msgReprobadoReq: "Reprovado (Req > 10)",
+        footer: "Desenvolvido por Edison Plaza & Gemini"
+    },
+    ja: {
+        title: "UG 成績計算機",
+        parcial1: "第1学期",
+        parcial2: "第2学期",
+        gf: "形成的評価",
+        gp: "実践的評価",
+        ex: "試験",
+        prom1: "第1学期平均:",
+        prom2: "第2学期平均:",
+        resultados: "最終結果",
+        promSemestre: "学期平均",
+        notaMinima: "最低追試成績",
+        msgIngreso: "成績を入力",
+        msgFaltan: "未入力の成績",
+        msgEspera: "待機中...",
+        msgAprobado: "合格",
+        msgReprobadoProm: "不合格 (平均 < 3)",
+        msgReprobadoReq: "不合格 (必要 > 10)",
+        footer: "エジソン・プラザ ＆ Gemini が開発"
+    }
+};
+
+const langSelector = document.getElementById('lang-selector');
+
+langSelector.addEventListener('change', (event) => {
+    const lang = event.target.value;
+    const elements = document.querySelectorAll('[data-i18n]');
+    
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            if (el.tagName === 'INPUT') {
+                el.placeholder = translations[lang][key];
+            } else {
+                el.innerText = translations[lang][key];
+            }
+        }
+    });
+    
+    calcularNotas();
+});
+
 async function iniciarFondoDinamico() {
     const docRef = db.collection("configuracion").doc("datos_hd");
 
@@ -138,6 +281,7 @@ function calcularNotas() {
     let promSemestre = (prom1 + prom2) / 2;
     const promSemestreElement = document.getElementById('prom-semestre');
     const recupElement = document.getElementById('nota-recuperacion');
+    const currentLang = langSelector.value;
     
     let todasVacias = (v_gf1 === "" && v_gp1 === "" && v_ex1 === "" && v_gf2 === "" && v_gp2 === "" && v_ex2 === "");
     let todasLlenas = (v_gf1 !== "" && v_gp1 !== "" && v_ex1 !== "" && v_gf2 !== "" && v_gp2 !== "" && v_ex2 !== "");
@@ -145,12 +289,12 @@ function calcularNotas() {
     if (todasVacias) {
         promSemestreElement.innerText = "---";
         promSemestreElement.style.color = "#888888";
-        recupElement.innerText = "Ingrese sus notas";
+        recupElement.innerText = translations[currentLang].msgIngreso;
         recupElement.style.color = "#888888";
     } else if (!todasLlenas) {
-        promSemestreElement.innerText = "En espera...";
+        promSemestreElement.innerText = translations[currentLang].msgEspera;
         promSemestreElement.style.color = "#888888";
-        recupElement.innerText = "Faltan notas por ingresar";
+        recupElement.innerText = translations[currentLang].msgFaltan;
         recupElement.style.color = "#888888";
     } else {
         promSemestreElement.innerText = promSemestre.toFixed(2);
@@ -168,13 +312,13 @@ function calcularNotas() {
         }
 
         if (promSemestre >= 7) {
-            recupElement.innerText = "Aprobado";
+            recupElement.innerText = translations[currentLang].msgAprobado;
             recupElement.style.color = "#4caf50"; 
         } else if (promSemestre < 3) {
-            recupElement.innerText = "Reprobado (Prom. < 3)";
+            recupElement.innerText = translations[currentLang].msgReprobadoProm;
             recupElement.style.color = "#f44336"; 
         } else if (recuperacion > 10) {
-            recupElement.innerText = "Reprobado (Req. > 10)";
+            recupElement.innerText = translations[currentLang].msgReprobadoReq;
             recupElement.style.color = "#f44336"; 
         } else {
             recupElement.innerText = recuperacion.toFixed(2);
@@ -184,40 +328,3 @@ function calcularNotas() {
 }
 
 calcularNotas();
-
-const musicBtn = document.getElementById('music-btn');
-const bgMusic = document.getElementById('bg-music');
-let isPlaying = false;
-let primeraInteraccion = false;
-
-bgMusic.volume = 0.3; 
-
-document.body.addEventListener('click', (event) => {
-    if (!primeraInteraccion && event.target.id !== 'music-btn') {
-        bgMusic.play().then(() => {
-            isPlaying = true;
-            primeraInteraccion = true;
-            musicBtn.innerText = "Pausar Musica";
-            musicBtn.style.backgroundColor = "#4da6ff";
-            musicBtn.style.color = "#000";
-        }).catch(error => {
-        });
-    }
-});
-
-musicBtn.addEventListener('click', () => {
-    primeraInteraccion = true; 
-    
-    if (isPlaying) {
-        bgMusic.pause();
-        musicBtn.innerText = "Reproducir Musica";
-        musicBtn.style.backgroundColor = "rgba(30, 30, 30, 0.7)";
-        musicBtn.style.color = "#4da6ff";
-    } else {
-        bgMusic.play();
-        musicBtn.innerText = "Pausar Musica";
-        musicBtn.style.backgroundColor = "#4da6ff";
-        musicBtn.style.color = "#000";
-    }
-    isPlaying = !isPlaying;
-});
