@@ -32,8 +32,8 @@ body {
     background-size: cover;
     background-position: center center;
     opacity: 0;
-    transform: scale(1.05);
-    transition: opacity 3s ease-in-out, transform 15s linear;
+    transform: scale(1.15);
+    transition: opacity 2.5s ease-in-out, transform 30s linear;
 }
 
 .ambient-bg.active {
@@ -45,28 +45,34 @@ body {
     display: none;
 }
 
-.music-controls {
+.language-controls {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 10;
 }
 
-.btn-music {
+.lang-select {
     background-color: rgba(30, 30, 30, 0.7);
     color: #4da6ff;
     border: 1px solid #4da6ff;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    outline: none;
     backdrop-filter: blur(5px);
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
 }
 
-.btn-music:hover {
-    background-color: #4da6ff;
-    color: #000;
+.lang-select:hover {
+    background-color: rgba(77, 166, 255, 0.1);
+}
+
+.lang-select option {
+    background-color: #1a1a24;
+    color: #fff;
 }
 
 .calculator-container {
@@ -198,7 +204,7 @@ input[type="number"]:focus {
         padding: 15px;
         margin-top: 50px;
     }
-    .music-controls {
+    .language-controls {
         top: 10px;
         right: 50%;
         transform: translateX(50%);
