@@ -74,7 +74,7 @@ function iniciarRotacion() {
 
     bgLayer1.style.backgroundImage = `url('${ambientImages[0]}')`;
     
-    setInterval(changeAmbientBackground, 120000);
+    setInterval(changeAmbientBackground, 30000);
 }
 
 function changeAmbientBackground() {
