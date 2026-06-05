@@ -1,10 +1,11 @@
 const firebaseConfig = {
-    apiKey: "INGRESA_TU_API_KEY_AQUI",
-    authDomain: "INGRESA_TU_AUTHDOMAIN_AQUI",
-    projectId: "INGRESA_TU_PROJECTID_AQUI",
-    storageBucket: "INGRESA_TU_STORAGEBUCKET_AQUI",
-    messagingSenderId: "INGRESA_TU_MESSAGINGSENDERID_AQUI",
-    appId: "INGRESA_TU_APPID_AQUI"
+  apiKey: "AIzaSyCPQ-xLQiEva-FVItxkpq8Ajmks34LQfoM",
+  authDomain: "calculadora-ug.firebaseapp.com",
+  projectId: "calculadora-ug",
+  storageBucket: "calculadora-ug.firebasestorage.app",
+  messagingSenderId: "583361267783",
+  appId: "1:583361267783:web:4feda2c2a6771a542a0962",
+  measurementId: "G-LM7TVEL7HV"
 };
 
 firebase.initializeApp(firebaseConfig);
