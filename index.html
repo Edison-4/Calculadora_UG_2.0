@@ -11,74 +11,78 @@
     <div id="bg-layer-2" class="ambient-bg"></div>
     <div class="ambient-overlay"></div>
 
-    <div class="music-controls">
-        <button id="music-btn" class="btn-music">Reproducir Musica</button>
-        <audio id="bg-music" loop>
-            <source src="musica.mp3" type="audio/mpeg">
-        </audio>
+    <div class="language-controls">
+        <select id="lang-selector" class="lang-select">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="pt">Português</option>
+            <option value="ja">日本語</option>
+        </select>
     </div>
 
     <div class="calculator-container">
-        <h2>Calculadora de Notas UG</h2>
+        <h2 data-i18n="title">Calculadora de Notas UG</h2>
         
         <div class="grid-layout">
             <div class="section-card">
-                <h3>1er Parcial</h3>
+                <h3 data-i18n="parcial1">1er Parcial</h3>
                 <div class="input-group">
-                    <label for="gf1">Gestión Formativa</label>
+                    <label for="gf1" data-i18n="gf">Gestión Formativa</label>
                     <input type="number" id="gf1" step="0.01" min="0" max="10" placeholder="0.00">
                 </div>
                 <div class="input-group">
-                    <label for="gp1">Gestión Práctica</label>
+                    <label for="gp1" data-i18n="gp">Gestión Práctica</label>
                     <input type="number" id="gp1" step="0.01" min="0" max="10" placeholder="0.00">
                 </div>
                 <div class="input-group">
-                    <label for="ex1">Examen</label>
+                    <label for="ex1" data-i18n="ex">Examen</label>
                     <input type="number" id="ex1" step="0.01" min="0" max="10" placeholder="0.00">
                 </div>
                 <div class="result-row">
-                    <span>Promedio 1er Parcial:</span>
+                    <span data-i18n="prom1">Promedio 1er Parcial:</span>
                     <span id="prom1" class="highlight">0.00</span>
                 </div>
             </div>
 
             <div class="section-card">
-                <h3>2do Parcial</h3>
+                <h3 data-i18n="parcial2">2do Parcial</h3>
                 <div class="input-group">
-                    <label for="gf2">Gestión Formativa</label>
+                    <label for="gf2" data-i18n="gf">Gestión Formativa</label>
                     <input type="number" id="gf2" step="0.01" min="0" max="10" placeholder="0.00">
                 </div>
                 <div class="input-group">
-                    <label for="gp2">Gestión Práctica</label>
+                    <label for="gp2" data-i18n="gp">Gestión Práctica</label>
                     <input type="number" id="gp2" step="0.01" min="0" max="10" placeholder="0.00">
                 </div>
                 <div class="input-group">
-                    <label for="ex2">Examen</label>
+                    <label for="ex2" data-i18n="ex">Examen</label>
                     <input type="number" id="ex2" step="0.01" min="0" max="10" placeholder="0.00">
                 </div>
                 <div class="result-row">
-                    <span>Promedio 2do Parcial:</span>
+                    <span data-i18n="prom2">Promedio 2do Parcial:</span>
                     <span id="prom2" class="highlight">0.00</span>
                 </div>
             </div>
         </div>
 
         <div class="results-card">
-            <h3>Resultados Finales</h3>
+            <h3 data-i18n="resultados">Resultados Finales</h3>
             <div class="summary-grid">
                 <div class="summary-item">
-                    <span>Promedio Semestre</span>
+                    <span data-i18n="promSemestre">Promedio Semestre</span>
                     <span id="prom-semestre" class="highlight-total">---</span>
                 </div>
                 <div class="summary-item">
-                    <span>Nota Mínima Recuperación</span>
-                    <span id="nota-recuperacion" class="highlight-warning">Ingrese sus notas</span>
+                    <span data-i18n="notaMinima">Nota Mínima Recuperación</span>
+                    <span id="nota-recuperacion" class="highlight-warning" data-i18n="msgIngreso">Ingrese sus notas</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="watermark">
+    <div class="watermark" data-i18n="footer">
         Desarrollado por Edison Plaza & Gemini
     </div>
 
