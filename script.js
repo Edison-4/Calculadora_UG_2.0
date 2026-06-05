@@ -15,11 +15,11 @@ const UNSPLASH_ACCESS_KEY = "Mrl1smh3LOgNLla3sO7Vjo2lqFjgHR9lMTqMxM75_dM";
 const API_URL = `https://api.unsplash.com/photos/random?count=25&query=nature,landscape,mountain&orientation=landscape&client_id=${UNSPLASH_ACCESS_KEY}`;
 
 let ambientImages = [
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop'
+    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=3840&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=3840&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=3840&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80&w=3840&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=3840&auto=format&fit=crop'
 ];
 
 let currentBgIndex = 0;
@@ -28,7 +28,7 @@ const bgLayer2 = document.getElementById('bg-layer-2');
 let isLayer1Active = true;
 
 async function iniciarFondoDinamico() {
-    const docRef = db.collection("configuracion").doc("datos");
+    const docRef = db.collection("configuracion").doc("datos_hd");
 
     try {
         const doc = await docRef.get();
@@ -50,7 +50,7 @@ async function iniciarFondoDinamico() {
         
         if (respuesta.ok) {
             const datosUnsplash = await respuesta.json();
-            ambientImages = datosUnsplash.map(foto => foto.urls.regular);
+            ambientImages = datosUnsplash.map(foto => foto.urls.full);
 
             await docRef.set({
                 timestamp: now,
