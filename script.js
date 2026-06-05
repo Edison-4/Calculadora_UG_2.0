@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-const UNSPLASH_ACCESS_KEY = "INGRESA_TU_CLAVE_UNSPLASH_AQUI"; 
+const UNSPLASH_ACCESS_KEY = "Mrl1smh3LOgNLla3sO7Vjo2lqFjgHR9lMTqMxM75_dM"; 
 const API_URL = `https://api.unsplash.com/photos/random?count=25&query=nature,landscape,mountain&orientation=landscape&client_id=${UNSPLASH_ACCESS_KEY}`;
 
 let ambientImages = [
