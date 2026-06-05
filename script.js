@@ -46,7 +46,7 @@ const translations = {
         msgAprobado: "Aprobado",
         msgReprobadoProm: "Reprobado (Prom. < 3)",
         msgReprobadoReq: "Reprobado (Req. > 10)",
-        footer: "Desarrollado por Edison Plaza & Gemini"
+        footer: "Desarrollado por Edison P. & Gemini"
     },
     en: {
         title: "UG Grade Calculator",
@@ -66,7 +66,7 @@ const translations = {
         msgAprobado: "Passed",
         msgReprobadoProm: "Failed (Avg < 3)",
         msgReprobadoReq: "Failed (Req > 10)",
-        footer: "Developed by Edison Plaza & Gemini"
+        footer: "Developed by Edison P. & Gemini"
     },
     fr: {
         title: "Calculatrice de Notes UG",
@@ -86,7 +86,7 @@ const translations = {
         msgAprobado: "Admis",
         msgReprobadoProm: "Échoué (Moy < 3)",
         msgReprobadoReq: "Échoué (Req > 10)",
-        footer: "Développé par Edison Plaza & Gemini"
+        footer: "Développé par Edison P. & Gemini"
     },
     de: {
         title: "UG Notenrechner",
@@ -106,7 +106,7 @@ const translations = {
         msgAprobado: "Bestanden",
         msgReprobadoProm: "Durchgefallen (Durch. < 3)",
         msgReprobadoReq: "Durchgefallen (Erf. > 10)",
-        footer: "Entwickelt von Edison Plaza & Gemini"
+        footer: "Entwickelt von Edison P. & Gemini"
     },
     pt: {
         title: "Calculadora de Notas UG",
@@ -126,7 +126,7 @@ const translations = {
         msgAprobado: "Aprovado",
         msgReprobadoProm: "Reprovado (Média < 3)",
         msgReprobadoReq: "Reprovado (Req > 10)",
-        footer: "Desenvolvido por Edison Plaza & Gemini"
+        footer: "Desenvolvido por Edison P. & Gemini"
     },
     ja: {
         title: "UG 成績計算機",
@@ -146,7 +146,7 @@ const translations = {
         msgAprobado: "合格",
         msgReprobadoProm: "不合格 (平均 < 3)",
         msgReprobadoReq: "不合格 (必要 > 10)",
-        footer: "エジソン・プラザ ＆ Gemini が開発"
+        footer: "Edison P. ＆ Gemini が開発"
     }
 };
 
